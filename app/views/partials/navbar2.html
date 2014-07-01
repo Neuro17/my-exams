@@ -1,0 +1,78 @@
+
+
+	<!- navbar full width ->
+	
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+		<!- visualizzazione mobile ->
+			<button type="button" data-target="#coll" data-toggle="collapse" class="navbar-toggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">MyExams</a>
+		</div>
+		
+		<!-visualizzazione estesa ->
+		<div id="coll" class="navbar-collapse collapse">
+		<!- login visibile normalmente ->
+			<form class="navbar-form navbar-right hidden-xs">
+					<div class="form-group">
+						<input type="text" class="form-control nav-form-input" placeholder="ex@ex.com">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control nav-form-input" placeholder="pass">
+					</div>  
+						<button type="button" class="btn btn-default">
+								Login</button>
+						<button type="submit" class="btn btn-warning hidden-xs">
+							Login With Google</button>
+						<button type="submit" class="btn btn-info">
+							Sign Up Now!</button>	
+			</form>
+
+			<!- login visibile su smartphone ->
+			<ul class="navbar-nav nav visible-xs" id="navxs">
+				<li>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="email" class="control-label col-xs-3">Email: </label>
+							<div class="col-xs-9">
+								<input type="email" id="email" class="form-control" placeholder="ex@m.com">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="pass" class="control-label col-xs-3">Password: </label>
+							<div class="col-xs-9">
+								<input type="password" class="form-control">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-3 col-xs-2">
+								<button type="submit" class="btn btn-warning">
+										Login</button>
+							</div>
+							<div class="col-xs-4">
+								<button type="submit" id="google" class="btn btn-warning">
+									Login With Google</button>
+							</div>
+						</div>
+					</form>
+				</li>
+				<li>
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class=" col-xs-offset-3 col-xs-8">
+								<button type="submit" class="btn btn-info">
+									New Here?Sign In Now and Join Us!</button>
+							</div>
+						</div>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+					
+					
+			
