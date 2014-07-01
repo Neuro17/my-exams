@@ -2,7 +2,7 @@
 
 angular.module('myExamsApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
+/*    $scope.menu = [{
       'title': 'Home',
       'link': '/'
     }, {
@@ -11,12 +11,37 @@ angular.module('myExamsApp')
     }, {
       'title': 'google',
       'link': '/google'
-    }];
+    }];*/
     
+    $scope.user = {};
+    $scope.errors = {};
+
+      $scope.login = function(form) {
+        $scope.submitted = true;
+        
+        if(form.$valid) {
+          Auth.login({
+            email: $scope.user.email,
+            password: $scope.user.password
+          })
+          .then( function() {
+            // Logged in, redirect to home
+            $location.path('/');
+          })
+          .catch( function(err) {
+            err = err.data;
+            $scope.errors.other = err.message;
+          });
+        }
+        else {
+          $location.path('/');
+        }
+      };
+
     $scope.logout = function() {
       Auth.logout()
       .then(function() {
-        $location.path('/login');
+        $location.path('/');
       });
     };
     

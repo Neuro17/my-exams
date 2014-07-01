@@ -13,10 +13,10 @@ angular.module('myExamsApp', [
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
       })
-      .when('/login', {
+      /*.when('/login', {
         templateUrl: 'partials/login',
         controller: 'LoginCtrl'
-      })
+      })*/
       .when('/signup', {
         templateUrl: 'partials/signup',
         controller: 'SignupCtrl'
@@ -37,7 +37,7 @@ angular.module('myExamsApp', [
       return {
         'responseError': function(response) {
           if(response.status === 401) {
-            $location.path('/login');
+            $location.path('/');
             return $q.reject(response);
           }
           else {
