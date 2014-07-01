@@ -8,6 +8,9 @@ angular.module('myExamsApp')
     }, {
       'title': 'Settings',
       'link': '/settings'
+    }, {
+      'title': 'google',
+      'link': '/google'
     }];
     
     $scope.logout = function() {

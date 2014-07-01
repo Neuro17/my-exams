@@ -18,7 +18,7 @@ angular.module('myExamsApp')
        */
       login: function(user, callback) {
         var cb = callback || angular.noop;
-
+        
         return Session.save({
           email: user.email,
           password: user.password

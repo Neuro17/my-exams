@@ -4,7 +4,8 @@ angular.module('myExamsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'restangular'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -45,6 +46,9 @@ angular.module('myExamsApp', [
         }
       };
     }]);
+  })
+  .config(function(RestangularProvider) {
+    RestangularProvider.setBaseUrl('api/'); // in seguito aggiungere /api/v1
   })
   .run(function ($rootScope, $location, Auth) {
 
