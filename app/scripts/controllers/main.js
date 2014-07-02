@@ -22,7 +22,7 @@ angular.module('myExamsApp').controller('MainCtrl', function MainCtrl($scope, Ma
 	 	$scope.awesomeThings = MainFactory.awesomeThings;
 	 });
 
-	 MainFactory.getMe();
+	//MainFactory.getMe();
 
 
 });

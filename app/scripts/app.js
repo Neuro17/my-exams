@@ -22,7 +22,7 @@ angular.module('myExamsApp', [
         controller: 'SignupCtrl'
       })
       .when('/settings', {
-        templateUrl: 'partials/settings',
+        templateUrl: 'partials/settings2',
         controller: 'SettingsCtrl',
         authenticate: true
       })

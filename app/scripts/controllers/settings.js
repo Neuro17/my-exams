@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myExamsApp')
-  .controller('SettingsCtrl', function ($scope, User, Auth) {
+  .controller('SettingsCtrl', function ($scope, User, Auth, SettingsFactory) {
     $scope.errors = {};
 
     $scope.changePassword = function(form) {
@@ -18,4 +18,7 @@ angular.module('myExamsApp')
         });
       }
 		};
+
+    SettingsFactory.getMe();
+
   });

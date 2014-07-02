@@ -1,11 +1,87 @@
-<div class="header" ng-controller="NavbarCtrl">
-  <ul class="nav nav-pills pull-right">
-    <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-        <a ng-href="{{item.link}}">{{item.title}}</a>
-    </li>
-    <li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
-    <li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-    <li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
-  </ul>
-  <h3 class="text-muted">myExams</h3>
-</div>
+
+
+	<!- navbar full width ->
+	
+	<nav class="navbar navbar-default" ng-controller="NavbarCtrl">
+		<div class="navbar-header">
+		<!- visualizzazione mobile ->
+			<button type="button" data-target="#coll" data-toggle="collapse" class="navbar-toggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">MyExams</a>
+		</div>
+		
+		<!-visualizzazione estesa ->
+		<div id="coll" class="navbar-collapse collapse">
+			<!- questo è dopo login ->
+			<ul class="nav navbar-nav navbar-right" ng-show="currentUser">
+				<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle">{{currentUser.name}}<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="/settings">Settings</a></li>
+							<li><a href="" ng-click="logout()">Logout</a></li>
+						</ul>
+				</li>	
+			</ul>
+			
+			<!- questo e prima login ->
+		<!- login visibile normalmente ->
+			<form class="navbar-form navbar-right hidden-xs" ng-submit="login(form)" ng-hide="currentUser" name="form">
+					<div class="form-group">
+						<input type="email" class="form-control nav-form-input" placeholder="ex@ex.com" ng-model="user.email">
+					</div>
+					<div class="form-group">
+						<input type="password" class="form-control nav-form-input" placeholder="pass" ng-model="user.password">
+					</div>  
+						<button type="submit" class="btn btn-default">
+								Login</button>
+						<a href="/auth/google" target="_self" class="btn btn-warning">
+							Login With Google</a>
+						<a href="/signup" type="submit" class="btn btn-info">
+							Sign Up Now!</a>	
+			</form>
+
+			<!- login visibile su smartphone ->
+			<ul class="navbar-nav nav visible-xs" id="navxs">
+				<li>
+					<form class="form-horizontal" name="form" ng-submit="login(form)" ng-hide="currentUser">
+						<div class="form-group">
+							<label for="email" class="control-label col-xs-3">Email: </label>
+							<div class="col-xs-9">
+								<input type="email" id="email" class="form-control" placeholder="ex@m.com" ng-model="user.email">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="pass" class="control-label col-xs-3">Password: </label>
+							<div class="col-xs-9">
+								<input type="password" class="form-control" ng-model="user.password">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-xs-offset-3 col-xs-2">
+								<button type="submit" class="btn btn-warning">
+										Login</button>
+							</div>
+							<div class="col-xs-4">
+								<a href="/auth/google" target="_self" type="submit" id="google" class="btn btn-warning">
+									Login With Google</a>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class=" col-xs-offset-3 col-xs-8">
+								<a href="/signup" class="btn btn-info">
+									New Here?Sign In Now and Join Us!</a>
+							</div>
+						</div>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+					
+					
+			
