@@ -2,6 +2,7 @@
 
 angular.module('myExamsApp').factory('SettingsFactory', function SettingsFactory($location, Restangular){
 
+	// TO-DO
 	SettingsFactory.getMe = function() {
 		return Restangular.all('users').one('me').get()
 		 .then(function(me) {

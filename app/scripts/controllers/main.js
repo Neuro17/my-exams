@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myExamsApp').controller('MainCtrl', function MainCtrl($scope, MainFactory) {
+angular.module('myExamsApp').controller('MainCtrl', function MainCtrl($scope, $rootScope, MainFactory) {
 
 	/*
 		Vecchio modo.
@@ -16,7 +16,6 @@ angular.module('myExamsApp').controller('MainCtrl', function MainCtrl($scope, Ma
 		in modo che il controller il servizio possa essere riutilizzato 
 		tra diversi controller se necessario
 	*/
-
 	MainFactory.getAwesomeThings()
 	 .then(function() {
 	 	$scope.awesomeThings = MainFactory.awesomeThings;
